@@ -31,6 +31,8 @@ All of our runs were executed in a multi-computer environment, with NVIDIA K80 G
  running Linux (Red Hat Enterprise Linux 7.4 3).
 
 ---
+**NOTE**: Dissertação de Mestrado - Julia Drummond Noce
+
 The master node runs Q-NAS and distributes the evaluation tasks to the slaves with non-blocking send operations and it also collects the results with non-blocking receives. The master and the slaves evaluates one individual per generation. This means that the number of processes is equal to the number of
 classical individuals to be evaluated
 
