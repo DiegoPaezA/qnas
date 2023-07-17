@@ -50,11 +50,12 @@ class EvalPopulation(object):
         """
 
         pop_size = len(decoded_nets)
-
+        print("pop_size", pop_size)
+        print("self.size", self.size)
         assert pop_size == self.size
 
         evaluations = np.empty(shape=(pop_size,))
-
+        
         try:
             self.send_data(decoded_params, decoded_nets, generation)
             print(self.fn_dict)

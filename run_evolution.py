@@ -34,7 +34,6 @@ def master(args, comm):
         args: dict with command-in-line parameters.
         comm: MPI.COMM_WORLD.
     """
-
     logger = init_log(args['log_level'], name=__name__)
 
     if not os.path.exists(args['experiment_path']):
@@ -54,8 +53,10 @@ def master(args, comm):
     config.get_parameters()
     logger.info(f"Saving parameters for {config.phase} phase ...")
     config.save_params_logfile()
+    
+ 
 
-    # Evaluation function for QNAS (train CNN and return validation accuracy)
+    #Evaluation function for QNAS (train CNN and return validation accuracy)
     eval_f = evaluation.EvalPopulation(params=config.train_spec,
                                        data_info=config.data_info,
                                        fn_dict=config.fn_dict,
@@ -67,6 +68,7 @@ def master(args, comm):
                          data_file=config.files_spec['data_file'])
 
     qnas_cnn.initialize_qnas(**config.QNAS_spec)
+    
 
     # If continue previous evolution, load log file and read it at final generation
     if phase == 'continue_evolution':
@@ -77,8 +79,9 @@ def master(args, comm):
     # Execute evolution
     logger.info(f"Starting evolution ...")
     qnas_cnn.evolve()
-
+    
     send_stop_signal(comm)
+    print("Done")
 
 
 def slave(comm):
@@ -110,7 +113,7 @@ def slave(comm):
 
 
 def main(**args):
-
+    
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
 
@@ -136,5 +139,5 @@ if __name__ == '__main__':
                         help='Logging information level.')
 
     arguments = parser.parse_args()
-
+    
     main(**vars(arguments))

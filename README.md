@@ -154,9 +154,9 @@ In summary, the files are:
 This is an example of how to run architecture search for dataset `cifar10/cifar_tfr_10000` with `config1.txt`:
 
 ```shell script
-mpirun -n 20 python run_evolution.py \
-    --experiment_path my_exp_config1 \
-    --config_file config_files/config1.txt \
+mpirun -n 2 python run_evolution.py \
+    --experiment_path my_exp_config2 \
+    --config_file config_files/config2.txt \
     --data_path cifar10/cifar_tfr_10000 \
     --log_level INFO
 ```
