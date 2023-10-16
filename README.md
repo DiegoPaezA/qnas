@@ -206,7 +206,7 @@ After the evolution is complete, the final network can be retrained on the entir
 
 ```shell script
 python run_retrain.py \
-    --experiment_path my_exp_config1 \
+    --experiment_path my_exp_config2 \
     --data_path cifar10/cifar_tfr \
     --log_level INFO \
     --max_epochs 300 \
