@@ -13,7 +13,8 @@ import qnas
 import qnas_config as cfg
 from cnn import train
 from util import check_files, init_log
-import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+# disable all logging from tensorflow
 
 def send_stop_signal(comm):
     """ Helper function for master to send a stop message to workers, so they can finish their

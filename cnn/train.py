@@ -239,7 +239,9 @@ def fitness_calculation(id_num, data_info, params, fn_dict, net_list):
 
     params['net'] = net
     params['net_list'] = net_list
-
+    print("****"*10)
+    print(net_list)
+    print("****"*10)
     # Training time start counting here. It needs to be defined outside model_fn(), to make it
     # valid in the multiple calls to classifier.train(). Otherwise, it would be restarted.
     params['t0'] = time.time()
