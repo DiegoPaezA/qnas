@@ -67,7 +67,7 @@ def main(**args):
     #                  'bv1p_3_1_64',
     #                  'no_op'
     #                  ]
-    config.evolved_params['net'] = best_ind_tese
+    #config.evolved_params['net'] = best_ind_tese
     logger.info(f"Starting training of model {config.evolved_params['net']}")
     valid_acc, test_info = train.train_and_eval(data_info=config.data_info,
                                                 params=train_params,

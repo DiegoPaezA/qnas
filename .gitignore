@@ -108,3 +108,6 @@ ENV/
 
 # Visual Studio Code files
 .vscode
+
+# Dataset
+/cifar10
